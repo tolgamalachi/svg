@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SVG</title>
+    <style>
+        .box {
+            width: 350px;
+            height: 350px;
+            background-color: white;
+            margin: 1rem;
+            display: inline-block;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body style="background-color: lightgreen">
+
+<div id="box" class="box">
+    <svg style="border-radius: 5px;" width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+
+        <!-- BILD-MODUL -->
+        <g id="image">
+            <image x="0" y="0"
+                   xlink:href="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389"
+                   width="100%" height="80%"/>
+        </g>
+
+        <!-- PREIS-MODUL -->
+		<g id="price" transform="matrix(1,0,0,1,950,650)">
+            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
+                333333,50 &euro;
+            </text>
+        </g>
+
+        <!-- TEXT-MODUL -->
+        <g id="text" transform="matrix(1,0,0,1,40,820)">
+            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
+                PRODUKTNAME
+            </text>
+            <text dy="75" font-family="sans-serif" font-size="2.5em" fill="black">
+                Lange Beschreibung Lange Beschreibung
+            </text>
+            <text dy="120" font-family="sans-serif" font-size="2.5em" fill="black">
+                Lange Beschreibung Lange Beschreibung
+            </text>
+        </g>
+    </svg>
+</div>
+
+<div id="box2" class="box">
+    <svg style="border-radius: 5px;" width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+
+        <!-- BILD-MODUL -->
+        <g id="image">
+            <image x="0" y="0"
+                   xlink:href="http://cdn.wallpapersafari.com/6/33/14WgCG.jpg"
+                   width="100%" height="80%"/>
+        </g>
+
+        <!-- PREIS-MODUL -->
+		<g id="price" transform="matrix(1,0,0,1,950,650)">
+            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
+                333333,50 &euro;
+            </text>
+        </g>
+
+        <!-- TEXT-MODUL -->
+        <g id="text" transform="matrix(1,0,0,1,40,820)">
+            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
+                PRODUKTNAME
+            </text>
+            <text dy="75" font-family="sans-serif" font-size="2.5em" fill="black">
+                Lange Beschreibung Lange Beschreibung
+            </text>
+            <text dy="120" font-family="sans-serif" font-size="2.5em" fill="black">
+                Lange Beschreibung Lange Beschreibung
+            </text>
+        </g>
+    </svg>
+</div>
+
+
+<script>
+    let div = document.getElementById("box");
+    for (let i = 0; i < 4; i++) {
+        let divClone = div.cloneNode(true);
+        document.body.appendChild(divClone);
+    }
+</script>
+</body>
+</html>
