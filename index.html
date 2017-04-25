@@ -19,66 +19,85 @@
 <body style="background-color: lightgreen">
 
 <div id="box" class="box">
-    <svg style="border-radius: 5px;" width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+    <svg style="border-radius: 5px;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+            <!-- BILD-MODUL -->
+            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMin">
+                <image xlink:href="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389" width="100%"></image>
+            </svg>
+        <!-- PREIS-MODUL
 
-        <!-- BILD-MODUL -->
-        <g id="image">
-            <image x="0" y="0"
-                   xlink:href="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389"
-                   width="100%" height="80%"/>
-        </g>
+            Preis darf nicht skalieren.
+            TODO: Muss aber gleichzeitig in einer relativen Position zum Bild verbleiben, das wiederum skalieren muss...
 
-        <!-- PREIS-MODUL -->
-		<g id="price" transform="matrix(1,0,0,1,950,650)">
-            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
-                333333,50 &euro;
-            </text>
-        </g>
+        -->
+            <svg x="0" y="0" width="100%" id="price" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g>
+                    <text dx="975" dy="725" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
+                        333333,50 &euro;
+                    </text>
+                </g>
+            </svg>
 
-        <!-- TEXT-MODUL -->
-        <g id="text" transform="matrix(1,0,0,1,40,820)">
-            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
-                PRODUKTNAME
-            </text>
-            <text dy="75" font-family="sans-serif" font-size="2.5em" fill="black">
-                Lange Beschreibung Lange Beschreibung
-            </text>
-            <text dy="120" font-family="sans-serif" font-size="2.5em" fill="black">
-                Lange Beschreibung Lange Beschreibung
-            </text>
-        </g>
+
+        <!-- TEXT-MODUL
+
+                Das Text-Modul soll nicht skalieren. Aus diesem Grund, darf das auessere SVG-Element keine viewBox
+                definiert haben, da Inhalte einer viewBox skaliert werden. Ausserdem muss - auch aus diesem Grund -
+                das SVG-Element (oder irgendein anderer Container) fuer die Texte die Position ueber die x- und y-Werte
+                direkt bekommen und sollte nicht transformiert werden ueber viewBox-Abhängige Funktionen.
+                Der Container fuer die Texte kann (und sollte) gebrauch von einer viewBox machen. Allerdings
+                mit dem Attribut: preserveAspectRatio="none"
+         -->
+            <svg x="20" y="80%" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g>
+                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
+                        PRODUKTNAME
+                    </text>
+                    <text dy="105" font-family="sans-serif" font-size="2.5em" fill="black">
+                        Lange Beschreibung Lange Beschreibung
+                    </text>
+                    <text dy="150" font-family="sans-serif" font-size="2.5em" fill="black">
+                        Lange Beschreibung Lange Beschreibung
+                    </text>
+                </g>
+
+            </svg>
     </svg>
 </div>
 
 <div id="box2" class="box">
-    <svg style="border-radius: 5px;" width="100%" height="100%" viewBox="0 0 1000 1000" preserveAspectRatio="xMinYMin" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+    <svg style="border-radius: 5px;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
+            <!-- BILD-MODUL -->
+            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMin">
+                <image xlink:href="http://cdn.wallpapersafari.com/6/33/14WgCG.jpg" width="100%"></image>
+            </svg>
+        <!-- PREIS-MODUL
+        -->
+            <svg x="0" y="0" width="100%" id="price" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g>
+                    <text dx="975" dy="725" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
+                        333333,50 &euro;
+                    </text>
+                </g>
+            </svg>
 
-        <!-- BILD-MODUL -->
-        <g id="image">
-            <image x="0" y="0"
-                   xlink:href="http://cdn.wallpapersafari.com/6/33/14WgCG.jpg"
-                   width="100%" height="80%"/>
-        </g>
 
-        <!-- PREIS-MODUL -->
-		<g id="price" transform="matrix(1,0,0,1,950,650)">
-            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
-                333333,50 &euro;
-            </text>
-        </g>
+        <!-- TEXT-MODUL
+         -->
+            <svg x="20" y="80%" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g>
+                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
+                        PRODUKTNAME
+                    </text>
+                    <text dy="105" font-family="sans-serif" font-size="2.5em" fill="black">
+                        Lange Beschreibung Lange Beschreibung
+                    </text>
+                    <text dy="150" font-family="sans-serif" font-size="2.5em" fill="black">
+                        Lange Beschreibung Lange Beschreibung
+                    </text>
+                </g>
 
-        <!-- TEXT-MODUL -->
-        <g id="text" transform="matrix(1,0,0,1,40,820)">
-            <text font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
-                PRODUKTNAME
-            </text>
-            <text dy="75" font-family="sans-serif" font-size="2.5em" fill="black">
-                Lange Beschreibung Lange Beschreibung
-            </text>
-            <text dy="120" font-family="sans-serif" font-size="2.5em" fill="black">
-                Lange Beschreibung Lange Beschreibung
-            </text>
-        </g>
+            </svg>
     </svg>
 </div>
 
