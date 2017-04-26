@@ -13,16 +13,114 @@
             display: inline-block;
             border-radius: 5px;
         }
+
+        .bo-box {
+            display: block;
+            float: left;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: 5px;
+        }
+
+        .bo-box-image {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+
+        .bo-box-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            border-radius: 5px;
+        }
+
+        .bo-box-text {
+            background: white;
+            border-radius: 5px;
+        }
+
+        .bo-box-price {
+            text-align: right;
+            border: 1px solid red;
+        }
+
     </style>
 </head>
 
 <body style="background-color: lightgreen">
 
+<div class="box" id='htmlbox'>
+    <div class="bo-box">
+        <img class="bo-box-image"
+             src="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389"/>
+        <div class="bo-box-bottom">
+            <div class="bo-box-price">
+                <svg id="price" x="0" y="0" viewBox="0 0 240 80" xml:space="preserve">
+                    <g>
+                        <text font-family="sans-serif" font-weight="bold" font-size="1.5em"
+                              fill="darkred" text-anchor="end">
+                            333333,50 &euro;
+                        </text>
+                    </g>
+                </svg>
+            </div>
+            <div class="bo-box-text">
+                <h1>Head</h1>
+                <span>
+                x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt, x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut ,x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="box">
+    <div class="bo-box">
+        <img class="bo-box-image"
+             src="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389"/>
+        <div class="bo-box-bottom">
+            <div class="bo-box-price">
+                <svg x="0" y="0" width="100%" id="price" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+
+                    <g>
+                        <text dx="975" dy="725" font-family="sans-serif" font-weight="bold" font-size="3.5em"
+                              fill="darkred" text-anchor="end">
+                            333333,50 &euro;
+                        </text>
+                    </g>
+                </svg>
+            </div>
+            <div class="bo-box-text" style="width:50%; float: left;">
+                <h1>Head</h1>
+                <span>
+                x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt, x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut ,x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            </span>
+            </div>
+
+        </div>
+        <div class="bo-box-text" style="width:50%; float: left; position: absolute; right: 0; bottom: 0;">
+            <h1>Head</h1>
+            <span>
+                x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt, x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut ,x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            </span>
+        </div>
+    </div>
+</div>
+
+
 <div id="box" class="box">
-    <svg style="border-radius: 5px;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink= "http://www.w3.org/1999/xlink" xml:space="preserve">
+    <svg style="border-radius: 5px;" width="100%" height="100%"  version="1.2" baseProfile="tiny"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve">
             <!-- BILD-MODUL -->
-            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMin">
-                <image xlink:href="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389" width="100%"></image>
+
+            <svg x="0" y="0" width="100%" height="100%" id="text" viewBox="0 0 1000 1000">
+                <image preserveAspectRatio="xMidYMin" xlink:href="http://bo.docker.pointdigital.de:83/resize/h165/4/4b/4b212ddbc46215670b24310a87e6b389" width="1000" height="1000" x="0" y="0"></image>
             </svg>
         <!-- PREIS-MODUL
 
@@ -31,6 +129,7 @@
 
         -->
             <svg x="0" y="0" width="100%" id="price" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+
                 <g>
                     <text dx="975" dy="725" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="darkred" text-anchor="end">
                         333333,50 &euro;
@@ -48,19 +147,16 @@
                 Der Container fuer die Texte kann (und sollte) gebrauch von einer viewBox machen. Allerdings
                 mit dem Attribut: preserveAspectRatio="none"
          -->
-            <svg x="20" y="80%" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                <g>
-                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
-                        PRODUKTNAME
-                    </text>
-                    <text dy="105" font-family="sans-serif" font-size="2.5em" fill="black">
-                        Lange Beschreibung Lange Beschreibung
-                    </text>
-                    <text dy="150" font-family="sans-serif" font-size="2.5em" fill="black">
-                        Lange Beschreibung Lange Beschreibung
-                    </text>
+            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g transform="translate(20,800)">
+                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">PRODUKTNAME</text>
+                    <g x=0 y=0 width="1000" height="300" requiredFeatures="http://www.w3.org/Graphics/SVG/feature/1.2/#TextFlow">
+                        <textArea x=0 y=0 width="1000" height="300">x1 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,</textArea>
+                    </g>
+                    <foreignObject x=0 y=0 width="1000" height="300">
+                        <textArea x=0 y=0 width="1000" height="300" xmlns="http://www.w3.org/1999/xhtml">x2 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,</textArea>
+                    </foreignObject>
                 </g>
-
             </svg>
     </svg>
 </div>
@@ -68,8 +164,8 @@
 <div id="box2" class="box">
     <svg style="border-radius: 5px;" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xml:space="preserve">
             <!-- BILD-MODUL -->
-            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMin">
-                <image xlink:href="http://cdn.wallpapersafari.com/6/33/14WgCG.jpg" width="100%"></image>
+           <svg x="0" y="1" width="100%" height="100%" id="text" viewBox="0 0 1000 1000">
+                <image preserveAspectRatio="xMidYMin" xlink:href="http://cdn.wallpapersafari.com/6/33/14WgCG.jpg" width="1000" height="1000" x="0" y="0"></image>
             </svg>
         <!-- PREIS-MODUL
         -->
@@ -84,27 +180,20 @@
 
         <!-- TEXT-MODUL
          -->
-            <svg x="20" y="80%" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
-                <g>
-                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">
-                        PRODUKTNAME
-                    </text>
-                    <text dy="105" font-family="sans-serif" font-size="2.5em" fill="black">
-                        Lange Beschreibung Lange Beschreibung
-                    </text>
-                    <text dy="150" font-family="sans-serif" font-size="2.5em" fill="black">
-                        Lange Beschreibung Lange Beschreibung
-                    </text>
+            <svg x="0" y="0" id="text" viewBox="0 0 1000 1000" preserveAspectRatio="none">
+                <g transform="translate(20,800)">
+                    <text dy="45" font-family="sans-serif" font-weight="bold" font-size="3.5em" fill="black">PRODUKTNAME</text>
+                    <text dy="105" font-family="sans-serif" font-size="2.5em" fill="black">Lange Beschreibung Lange Beschreibung</text>
+                    <text dy="150" font-family="sans-serif" font-size="2.5em" fill="black">Lange Beschreibung Lange Beschreibung</text>
                 </g>
-
             </svg>
     </svg>
 </div>
 
 
 <script>
-    let div = document.getElementById("box");
-    for (let i = 0; i < 4; i++) {
+    let div = document.getElementById("htmlbox");
+    for (let i = 0; i < 1000; i++) {
         let divClone = div.cloneNode(true);
         document.body.appendChild(divClone);
     }
