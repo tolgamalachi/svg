@@ -1,0 +1,89 @@
+<script>
+var pattern = "xlm".split("");
+
+const BOX_SIZE_XL="x";
+const BOX_SIZE_XL_COUNT=1;
+const BOX_SIZE_L="l";
+const BOX_SIZE_L_COUNT=2;
+const BOX_SIZE_M="m";
+const BOX_SIZE_M_COUNT=3;
+
+var bucket = [
+	{text:"L1", size: BOX_SIZE_L},
+	{text:"L2", size: BOX_SIZE_L},
+	{text:"XL", size: BOX_SIZE_XL},
+	{text:"M1", size: BOX_SIZE_M},
+	{text:"M2", size: BOX_SIZE_M},
+	{text:"M3", size: BOX_SIZE_M},
+	{text:"M4", size: BOX_SIZE_M},
+];
+
+function getSize(node) {
+	return node.size;
+}
+
+function getNodeFromBucketForSize( bucket, size, sizeFn ) {
+	let new_bucket = [];
+	let result = null;
+	
+	while (bucket.length) {
+		let node = bucket.pop();
+		
+		if ( !result && sizeFn(node) == size ) {
+			result = node;
+		} else {
+			new_bucket.push(node);
+		}
+	}
+	return {bucket: new_bucket, result};
+}
+
+function getNumNodesFor(size) {
+	switch (size) {
+		case BOX_SIZE_L:
+			return BOX_SIZE_L_COUNT;
+		case BOX_SIZE_XL:
+			return BOX_SIZE_XL_COUNT;
+		case BOX_SIZE_M:
+			return BOX_SIZE_M_COUNT
+	}
+	throw {error: "unknown box size"};
+}
+
+function getNext( data ) {
+	let pattern = data.pattern;
+	let wants = pattern.shift();
+	let count = getNumNodesFor(wants);
+	let result = null;
+	let bucket = data.bucket;
+
+	let row=[];
+
+	for ( let i=0;i < count; i++ ) {
+		({bucket, result} = getNodeFromBucketForSize(bucket, wants, getSize));
+		row.push(result);
+	}
+
+	pattern.push(wants);
+
+	while ( row[0] === null ) {
+		({row, bucket: data.bucket, pattern: data.pattern} = getNext({bucket, pattern}));
+	}
+	return {bucket, pattern, row};
+}
+
+	let data = {
+		bucket,
+		pattern
+	};
+	console.dir(data);
+	while(data.bucket.length) {
+		data = getNext(data);
+
+		console.dir(data.row);
+	}
+
+</script>
+
+<body>
+</body>
